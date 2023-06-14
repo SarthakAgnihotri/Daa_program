@@ -1,0 +1,16 @@
+The given code is an implementation of Dijkstra's algorithm to find the shortest distance from a source vertex to all other vertices in a weighted graph. Here's the algorithm:
+
+1. Create a priority queue to store nodes with their corresponding distances. Initialize a vector `dist` to store the shortest distances from the source vertex to all other vertices.
+2. Initialize all distances in `dist` as infinity (or a large value), except for the source vertex which is set to 0.
+3. Push the source vertex and its distance (0) into the priority queue.
+4. While the priority queue is not empty, do the following:
+   a. Extract the node with the minimum distance from the priority queue.
+   b. Iterate through all the adjacent nodes of the extracted node.
+   c. For each adjacent node, calculate the new distance as the sum of the current distance and the weight of the edge connecting the current node to the adjacent node.
+   d. If the new distance is smaller than the current distance stored in `dist`, update `dist` with the new distance and push the adjacent node and its new distance into the priority queue.
+5. After the algorithm finishes, the `dist` vector will contain the shortest distances from the source vertex to all other vertices.
+6. Return the `dist` vector.
+
+The algorithm uses a priority queue to select the node with the smallest distance in each iteration, ensuring that the node with the minimum distance is processed first.
+
+Please note that the given code assumes 0-based indexing for the vertices. If your graph uses 1-based indexing, you may need to adjust the indices accordingly.

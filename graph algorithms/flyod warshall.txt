@@ -1,0 +1,10 @@
+The given code represents an algorithm to find the shortest distances between all pairs of vertices in a directed graph represented by an adjacency matrix. The algorithm used here is the Floyd-Warshall algorithm. Below is the step-by-step explanation of the algorithm:
+
+1. Initialize the distance matrix with the values from the given input matrix. If there is no edge between two vertices (represented by -1 in the input matrix), assign a very large value (1e9) to indicate an infinite distance. Also, set the distance between a vertex and itself as 0.
+
+2. Perform the Floyd-Warshall algorithm by considering each vertex as an intermediate vertex. For each vertex k from 0 to n-1 (where n is the number of vertices), update the distance matrix by considering all pairs of vertices (i, j). Update the distance matrix as follows: `matrix[i][j] = min(matrix[i][j], matrix[i][k] + matrix[k][j])`.
+
+3. After the algorithm finishes, check if there are any vertices with infinite distance (1e9) in the distance matrix. If there are, replace them with -1 to indicate that there is no path between those vertices.
+
+4. Print the updated distance matrix.
+

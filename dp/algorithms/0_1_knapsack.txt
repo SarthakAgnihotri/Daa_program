@@ -1,0 +1,20 @@
+The code you provided is a complete implementation of the 0/1 Knapsack problem using the bottom-up approach. Here's the algorithm for the code:
+
+1. Read the number of test cases, t.
+
+2. Repeat the following steps for each test case:
+   a. Read the number of elements, n, and the knapsack weight capacity, w.
+   b. Initialize two arrays, `val` and `wt`, of size n to store the values and weights of the items, respectively.
+   c. Read the values of the items and store them in the `val` array.
+   d. Read the weights of the items and store them in the `wt` array.
+   e. Create a `Solution` object, ob.
+   f. Call the `knapSack` method of the `Solution` object `ob` with arguments w, wt, val, and n.
+   g. Print the maximum value that can be put in the knapsack.
+
+3. End the program.
+
+The `knapSack` function uses a 2D array `dp` to store the maximum value for each subproblem. It follows the bottom-up approach to fill the `dp` array by iterating through the items and capacities. The maximum value that can be put in the knapsack of capacity W is returned.
+
+The main function reads the input values, creates a `Solution` object, and calls the `knapSack` method for each test case.
+
+Overall, the provided code correctly implements the 0/1 Knapsack problem using the bottom-up approach.

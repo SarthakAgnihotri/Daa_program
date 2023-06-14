@@ -1,0 +1,18 @@
+The given code implements the Prim's algorithm to find the Minimum Spanning Tree (MST) of a graph represented using an adjacency list. Here's the algorithm:
+
+1. Create a priority queue `pq` to store the edges in increasing order of their weights.
+2. Create a vector `vis` of size V to keep track of visited nodes. Initialize all elements as 0.
+3. Initialize a variable `sum` to store the sum of weights of the MST.
+4. Push the first node (0) with weight 0 into the priority queue `pq`.
+5. While `pq` is not empty, do the following:
+   - Pop the top element from `pq`. Let it be `(wt, node)`.
+   - If the node is already visited, continue to the next iteration.
+   - Mark the node as visited by setting `vis[node]` to 1.
+   - Add the weight `wt` to `sum`.
+   - Iterate over all adjacent nodes of `node`. For each adjacent node `(adjNode, edw)`, do the following:
+     - If the adjacent node is not visited, push it into `pq` with the weight `edw`.
+6. Return the value of `sum`, which represents the sum of weights of the edges in the MST.
+
+The code follows this algorithm and returns the sum of weights of the MST for each test case.
+
+Note: The code assumes that the input graph is connected. If the graph is not connected, the MST won't exist, and the code may give incorrect results.

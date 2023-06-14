@@ -1,0 +1,19 @@
+The given code implements the Bellman Ford algorithm to find the shortest paths from a source vertex to all other vertices in a graph. Here's the algorithm converted into a step-by-step explanation:
+
+1. Create a class `Solution` to encapsulate the implementation of the algorithm.
+
+2. Define a function `bellman_ford` that takes the number of vertices `V`, the edge information `edges`, and the source vertex `S` as input and returns a vector of integers representing the shortest distances from the source vertex to all other vertices.
+
+3. Initialize a distance vector `dist` of size `V` and set all distances to a large value (e.g., 1e8) except for the source vertex `S`, which is set to 0.
+
+4. Perform relaxation of edges V-1 times to find the shortest paths. Iterate `V-1` times using a loop from `i = 0` to `i < V-1`.
+
+5. Within the outer loop, iterate through all the edges stored in the `edges` vector using a range-based for loop. For each edge, extract the source vertex `u`, destination vertex `v`, and weight `wt`.
+
+6. Check if there is a shorter path from the source vertex `u` to the destination vertex `v` by comparing the distance `dist[u]` and the sum of `dist[u]` and the weight `wt`. If the sum is smaller, update the distance of `v` as `dist[u] + wt`.
+
+7. After the V-1 iterations, perform one more iteration to detect negative cycles. Iterate through all the edges again and check if there is still a shorter path from `u` to `v` by comparing `dist[u]` and the sum of `dist[u]` and `wt`. If a shorter path is found, it means there is a negative cycle in the graph. In this case, return a vector containing only -1 to indicate the presence of a negative cycle.
+
+8. If no negative cycle is detected, return the `dist` vector, which contains the shortest distances from the source vertex to all other vertices.
+
+The algorithm calculates the shortest paths using the Bellman Ford algorithm and handles negative cycles as well.

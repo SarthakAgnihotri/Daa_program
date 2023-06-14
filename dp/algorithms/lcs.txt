@@ -1,0 +1,19 @@
+The provided code is already an implementation of the algorithm to find the length of the longest common subsequence using dynamic programming. Here's the algorithm in a step-by-step form:
+
+1. Read the number of test cases `t`.
+2. Iterate `t` times for each test case:
+   a. Read the lengths of the strings `x` and `y`.
+   b. Read the two strings `s1` and `s2`.
+   c. Create an instance of the `Solution` class.
+   d. Call the `lcs` function on the `Solution` object with arguments `x`, `y`, `s1`, and `s2`.
+   e. Print the result obtained from the `lcs` function.
+
+The `lcs` function performs the following steps:
+1. Create a 2D array `dp` with dimensions `(x+1) x (y+1)`.
+2. Initialize the first row and column of `dp` with zeros.
+3. Iterate over the strings `s1` and `s2`:
+   a. If the characters at the current positions in `s1` and `s2` are the same, increment the value of `dp[i][j]` by 1 compared to the diagonal element `dp[i-1][j-1]`.
+   b. If the characters are different, assign the maximum value between `dp[i-1][j]` and `dp[i][j-1]` to `dp[i][j]`.
+4. Return `dp[x][y]`, which represents the length of the longest common subsequence.
+
+This algorithm utilizes bottom-up dynamic programming to find the length of the longest common subsequence efficiently.

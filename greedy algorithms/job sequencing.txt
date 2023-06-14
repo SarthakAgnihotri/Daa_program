@@ -1,0 +1,22 @@
+Here is the algorithm for the given code:
+
+1. Define the `Job` structure with `id`, `dead`, and `profit` as members.
+2. Define the `Solution` class.
+3. Implement the static comparison function `comparison` to sort the jobs based on profit in descending order.
+4. Implement the `JobScheduling` function that takes an array of `Job` objects and the number of jobs as input.
+5. Sort the array of jobs in descending order of profit using the `comparison` function.
+6. Find the maximum deadline (`maxi`) among all jobs in the sorted array.
+7. Create an array `slot` of size `maxi + 1` and initialize all elements to -1.
+8. Initialize variables `countJobs` and `jobProfit` to 0.
+9. Iterate over each job in the sorted array.
+10. For each job, starting from its deadline, iterate downwards.
+11. If the current slot is available (i.e., `slot[j] == -1`), assign the job to that slot.
+12. Increment `countJobs` and accumulate the profit by adding the job's profit to `jobProfit`.
+13. Break the loop after assigning the job.
+14. Return a pair containing `countJobs` and `jobProfit`.
+15. In the `main` function, create an array of jobs and initialize them with their respective values.
+16. Create an object of the `Solution` class.
+17. Call the `JobScheduling` function on the object, passing the array of jobs and the number of jobs as arguments.
+18. Print the number of jobs done and the maximum profit obtained.
+
+The provided code already implements this algorithm correctly.

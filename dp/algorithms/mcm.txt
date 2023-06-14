@@ -1,0 +1,72 @@
+The algorithm for the matrix multiplication problem can be summarized as follows:
+
+1. Create a dynamic programming (DP) table `dp` of size `N x N` and initialize all values to 0.
+
+2. Iterate over the diagonal elements of the DP table. Start with `d = 1` and go up to `N - 2`.
+
+3. For each diagonal element, iterate over the rows `i` from 1 to `N - d` and calculate the column index `j = i + d`.
+
+4. Initialize the minimum cost `min` for the current subproblem as a very large value (e.g., `1e9`).
+
+5. Iterate over the partition index `k` from `i` to `j - 1`.
+
+6. Calculate the cost `q` for the current partition by multiplying the dimensions of the matrices involved (`arr[i-1] x arr[k] x arr[j]`) and adding it to the costs of multiplying the left and right submatrices (`dp[i][k]` and `dp[k+1][j]`).
+
+7. If the calculated cost `q` is less than the current minimum `min`, update `min` to `q` and store the partition index `k` in `dp[i][j]`.
+
+8. After the `k` loop, update `dp[i][j]` with the minimum cost `min` obtained.
+
+9. Repeat steps 3-8 for all diagonal elements of the DP table.
+
+10. The optimal cost for multiplying matrices `arr[1]` to `arr[N-1]` will be stored in `dp[1][N-1]`. Return this value.
+
+Here's the algorithm implemented in C++:
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int matrixMultiplication(int N, int arr[]) {
+        int dp[N][N] = {0};
+
+        for (int d = 1; d < N - 1; d++) {
+            for (int i = 1; i < N - d; i++) {
+                int j = i + d;
+                int minCost = INT_MAX;
+
+                for (int k = i; k <= j - 1; k++) {
+                    int cost = arr[i - 1] * arr[k] * arr[j] + dp[i][k] + dp[k + 1][j];
+                    minCost = min(minCost, cost);
+                }
+
+                dp[i][j] = minCost;
+            }
+        }
+
+        return dp[1][N - 1];
+    }
+};
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int N;
+        cin >> N;
+        int arr[N];
+
+        for (int i = 0; i < N; i++)
+            cin >> arr[i];
+
+        Solution ob;
+        cout << ob.matrixMultiplication(N, arr) << endl;
+    }
+
+    return 0;
+}
+```
+
+This algorithm uses dynamic programming to efficiently calculate the minimum cost of matrix multiplication. The time complexity of this solution is O(N^3), where N is the number of matrices.

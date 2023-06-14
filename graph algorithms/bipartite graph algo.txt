@@ -1,0 +1,37 @@
+Here's the algorithm based on the given code:
+
+1. Create a class `Solution` to encapsulate the implementation of the algorithm.
+
+2. Declare a private helper function `check` that takes a starting vertex `start`, the total number of vertices `v`, the adjacency list `adj`, and an array `color` to track the color of each vertex.
+
+3. Inside the `check` function, initialize a queue `q` and enqueue the starting vertex `start`.
+
+4. Set the color of the starting vertex as 0 (`color[start] = 0`).
+
+5. While the queue is not empty, perform the following steps:
+   - Dequeue a vertex `node` from the front of the queue.
+   - Iterate through all the adjacent vertices of `node` using a range-based for loop.
+   - If the color of the adjacent vertex `it` is -1 (indicating it has not been visited yet), set its color as the complement of the color of the current `node` (`color[it] = !color[node]`).
+   - Enqueue the adjacent vertex `it` into the queue.
+
+6. If the color of the adjacent vertex `it` is the same as the color of the current `node`, return `false` as it violates the bipartite property.
+
+7. After processing all the vertices, return `true` if no violation is found, indicating that the graph is bipartite.
+
+8. In the public function `isBipartite`, initialize an array `color` of size `V` to track the color of each vertex. Set all elements of `color` to -1 initially.
+
+9. Iterate through all the vertices from `0` to `V-1`. If the color of the current vertex is -1, call the `check` function with the current vertex as the starting vertex, `V` as the total number of vertices, `adj` as the adjacency list, and `color` as the color array.
+
+10. If the `check` function returns `false` for any connected component, return `false` from the `isBipartite` function as the graph is not bipartite.
+
+11. If all connected components pass the bipartite check, return `true` from the `isBipartite` function as the graph is bipartite.
+
+12. In the `main` function, for each test case:
+   - Read the number of vertices `V` and the number of edges `E`.
+   - Create an adjacency list `adj` of size `V` and initialize it.
+   - Read the edges and populate the adjacency list accordingly.
+   - Create an object of the `Solution` class.
+   - Call the `isBipartite` function with `V` and `adj` as arguments to check if the graph is bipartite.
+   - Print `1` if the graph is bipartite or `0` if it is not.
+
+The algorithm checks if the given graph is bipartite by using a modified BFS approach, assigning alternate colors to vertices and ensuring that no two adjacent vertices have the same color.
